@@ -1,0 +1,6 @@
+internal_webapp_url: "http://your-company.only.com"
+tokens:
+  # workspace 1
+  - xoxp-xxxxx
+  # workspace 2
+  - xoxp-yyyyy
