@@ -12,7 +12,7 @@ tokens:
   # workspackeのtokenを記載
   - xoxp-xxxxx
 ```
-[.slack.yml.sample]()を参考にしてください
+[.slack.yml.sample](https://github.com/bookun/slack-status-changer/blob/master/.slack.yml.sample)を参考にしてください。
 web版slackからログインしたことのあるworkspaceについては[ここ](https://api.slack.com/custom-integrations/legacy-tokens)からtokenを発行できるようです。
 
 3. slack-status-changer を実行。
