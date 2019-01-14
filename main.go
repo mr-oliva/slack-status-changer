@@ -1,14 +1,16 @@
 package main
 
 import (
+	"crypto/tls"
 	"fmt"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"net/url"
 
-	"github.com/mitchellh/go-homedir"
+	yaml "gopkg.in/yaml.v2"
+
+	homedir "github.com/mitchellh/go-homedir"
 )
 
 type slack struct {
@@ -43,6 +45,13 @@ func main() {
 }
 
 func (s *slack) sendStatus(status string) {
+	client := &http.Client{
+		Transport: &http.Transport{
+			TLSClientConfig: &tls.Config{
+				InsecureSkipVerify: true,
+			},
+		},
+	}
 	endpoint, err := url.Parse("https://slack.com/api/users.profile.set")
 	if err != nil {
 		log.Fatal(err)
@@ -53,7 +62,7 @@ func (s *slack) sendStatus(status string) {
 		q.Add("token", token)
 		tmpEndpoint := endpoint
 		tmpEndpoint.RawQuery = q.Encode()
-		_, err := http.Post(tmpEndpoint.String(), "application/json", nil)
+		_, err := client.Post(tmpEndpoint.String(), "application/json", nil)
 		if err != nil {
 			log.Fatal(err)
 		}
