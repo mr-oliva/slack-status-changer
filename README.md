@@ -2,7 +2,7 @@
 
 ## 使い方
 
-1. go get github.com/bookun/slack-status-changer
+1. `go get github.com/bookun/slack-status-changer`
 
 2. ホームディレクトリに `.slack.yml` を配置する
 
