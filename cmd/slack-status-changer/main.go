@@ -2,12 +2,13 @@ package main
 
 import (
 	"crypto/tls"
-	"github.com/bookun/slack-status-changer"
-	"github.com/mitchellh/go-homedir"
-	"gopkg.in/yaml.v2"
 	"io/ioutil"
 	"log"
 	"net/http"
+
+	"github.com/bookun/slack-status-changer"
+	"github.com/mitchellh/go-homedir"
+	"gopkg.in/yaml.v2"
 )
 
 type Manifest struct {

@@ -2,12 +2,11 @@ package changer
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"net/http"
 	"net/url"
 	"strings"
-
-	"github.com/pkg/errors"
 )
 
 type Config struct {

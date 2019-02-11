@@ -1,13 +1,13 @@
 package changer_test
 
 import (
+	"errors"
 	"fmt"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 
 	"github.com/bookun/slack-status-changer"
-	"github.com/pkg/errors"
 )
 
 func TestSlack_SendStatus(t *testing.T) {
