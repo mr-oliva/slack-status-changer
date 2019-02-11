@@ -16,8 +16,8 @@ func TestSlack_SendStatus(t *testing.T) {
 		ts     *httptest.Server
 		expect error
 	}{
-		{"slack api returned ok", genTestServer("ok"), nil},
-		{"slack api returned false", genTestServer("error"), errors.New("some error")},
+		{"slack api returned ok", genTestSlackServer("ok"), nil},
+		{"slack api returned false", genTestSlackServer("error"), errors.New("some error")},
 	}
 
 	t.Helper()
@@ -39,7 +39,7 @@ func TestSlack_SendStatus(t *testing.T) {
 	}
 }
 
-func genTestServer(s string) *httptest.Server {
+func genTestSlackServer(s string) *httptest.Server {
 	if s == "error" {
 		return httptest.NewServer(http.HandlerFunc(
 			func(w http.ResponseWriter, r *http.Request) {
