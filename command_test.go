@@ -25,6 +25,7 @@ func TestCommand_Run(t *testing.T) {
 		command := &changer.Command{
 			InternalURL: c.ts.URL,
 			SlackClient: slackClient,
+			HttpClient:  http.DefaultClient,
 		}
 		t.Run(c.name, func(t *testing.T) {
 			if err := command.Run(); err != nil {

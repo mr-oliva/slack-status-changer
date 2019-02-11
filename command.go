@@ -10,7 +10,7 @@ type SlackClient interface {
 type Command struct {
 	InternalURL string
 	SlackClient SlackClient
-	HttpClient  http.Client
+	HttpClient  *http.Client
 }
 
 func (c *Command) Run() error {
