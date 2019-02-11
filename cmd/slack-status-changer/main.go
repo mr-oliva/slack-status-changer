@@ -11,11 +11,6 @@ import (
 	"gopkg.in/yaml.v2"
 )
 
-type Manifest struct {
-	WEB    string   `yaml:"internal_webapp_url"`
-	Tokens []string `yaml:"tokens"`
-}
-
 func main() {
 	homedir, err := homedir.Dir()
 	if err != nil {
@@ -25,7 +20,7 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	var manifest Manifest
+	var manifest changer.Manifest
 	err = yaml.Unmarshal(data, &manifest)
 	if err != nil {
 		log.Fatal(err)
